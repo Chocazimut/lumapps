@@ -1,23 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
 import './App.scss'
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
+import {ConnectedRouter} from 'connected-react-router'
+import {Provider} from 'react-redux'
 import React from 'react'
 
-import Header from '../components/Header'
-import Rules from '../components/Rules'
+import history from 'store/history'
+import Router from 'core/Router'
+import store from 'store/configureStore'
 
 function App() {
   return (
-    <>
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <Rules />
-          </Route>
-        </Switch>
-      </Router>
-    </>
+    <Provider store={store}>
+      <ConnectedRouter history={history} noInitialPop>
+        <Router />
+      </ConnectedRouter>
+    </Provider>
   )
 }
 
