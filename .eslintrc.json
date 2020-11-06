@@ -1,25 +1,102 @@
 {
-    "extends": [
-      "airbnb",
-      "airbnb/hooks",
-      "eslint:recommended",
-      "react-app"
+  "extends": ["react-app", "airbnb", "prettier", "prettier/react"],
+  "plugins": ["fp", "prettier", "sort-imports-es6-autofix"],
+  "rules": {
+    "arrow-body-style": [
+      "error",
+      "as-needed"
     ],
-    "env": {
-      "browser": true,
-      "commonjs": true,
-      "node": true,
-      "es6": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 2018,
-      "sourceType": "module"
-    },
-    "rules": {
-      "curly": "warn",
-	  "react/jsx-indent": [2, "tab"],
-	  "react/jsx-indent-props": [2, "tab"],
-	  "no-tabs": "off",
-	  "max-len": "off"
+    "curly": ["error", "all"],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": false
+      }
+    ],
+    "fp/no-arguments": "warn",
+    "fp/no-delete": "warn",
+    "fp/no-events": "warn",
+    "fp/no-get-set": "warn",
+    "fp/no-let": "warn",
+    "fp/no-loops": "warn",
+    "fp/no-mutating-assign": "warn",
+    "fp/no-mutating-methods": [
+      "warn",
+      {
+        "allowedObjects": ["history"]
+      }
+    ],
+    "fp/no-valueof-field": "warn",
+    "import/prefer-default-export": "off",
+    "linebreak-style": ["error", "unix"],
+    "no-console": ["error"],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "__",
+          "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"
+        ]
+      }
+    ],
+    "no-var": "error",
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "next": "*",
+        "prev": ["const"]
+      },
+      {
+        "blankLine": "any",
+        "next": ["const"],
+        "prev": ["const"]
+      },
+      {
+        "blankLine": "always",
+        "next": "return",
+        "prev": "*"
+      }
+    ],
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": true,
+        "object": true
+      }
+    ],
+    "prefer-object-spread": "error",
+    "prettier/prettier": "error",
+    "react/destructuring-assignment": ["warn", "always"],
+    "react/forbid-foreign-prop-types": "error",
+    "react/jsx-filename-extension": [
+      "warn",
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-sort-default-props": "error",
+    "react/prefer-stateless-function": "off",
+    "react/sort-prop-types": "error",
+    "sort-imports-es6-autofix/sort-imports-es6": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ],
+    "spaced-comment": ["error", "always"]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js"],
+        "paths": ["src"]
+      }
     }
   }
+}

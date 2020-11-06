@@ -1,9 +1,9 @@
-import React from 'react';
-import { TextField, Theme } from '@lumx/react';
-import { mdiMagnify } from '@lumx/icons';
+import {mdiMagnify} from '@lumx/icons'
+import {TextField, Theme} from '@lumx/react'
+import React from 'react'
 
 const SearchField = () => (
-	<TextField theme={Theme.dark} placeholder="Search ..." icon={mdiMagnify} />
-);
+  <TextField theme={Theme.dark} placeholder="Search ..." icon={mdiMagnify} />
+)
 
-export default SearchField;
+export default SearchField
