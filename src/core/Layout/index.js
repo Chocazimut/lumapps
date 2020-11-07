@@ -3,9 +3,9 @@ import React from 'react'
 
 import Header from './components/Header'
 
-const Layout = ({isHeaderHidden, children}) => (
+const Layout = ({isHeaderHidden, isLightHeader, children}) => (
   <div>
-    {!isHeaderHidden && <Header />}
+    {!isHeaderHidden && <Header isLightHeader={isLightHeader} />}
     <main>{children}</main>
   </div>
 )
@@ -13,9 +13,11 @@ const Layout = ({isHeaderHidden, children}) => (
 Layout.propTypes = {
   children: element.isRequired,
   isHeaderHidden: bool,
+  isLightHeader: bool,
 }
 Layout.defaultProps = {
   isHeaderHidden: false,
+  isLightHeader: false,
 }
 
 export default Layout

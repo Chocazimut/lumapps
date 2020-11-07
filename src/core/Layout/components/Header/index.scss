@@ -1,3 +1,18 @@
 .header {
-  background-color: #be0117;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.1);
+  height: 80px;
+}
+
+.header-dark {
+  background-color: #28336d;
+}
+
+.header-light {
+  background-color: #fff;
+}
+.header-content-container {
+  max-width: 1200px;
+  justify-content: space-between;
 }
