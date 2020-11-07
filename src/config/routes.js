@@ -22,11 +22,12 @@ const routes = [
   },
   {
     id: 'details',
-    path: '/details',
+    path: '/details/:characterId',
     exact: true,
     feature: 'Details',
     pageName: 'Details',
     isPublic: true,
+    isLightHeader: true,
   },
   {
     id: 'notFound',

@@ -9,7 +9,11 @@ import routes, {getPagePath} from 'config/routes'
 const Router = () => {
   const {pathname} = useLocation()
 
-  const {pageName = false, isHeaderHidden = false} = useMemo(
+  const {
+    pageName = false,
+    isHeaderHidden = false,
+    isLightHeader = false,
+  } = useMemo(
     () =>
       find(
         route => matchPath(pathname, pick(['path', 'exact'], route)),
@@ -32,7 +36,7 @@ const Router = () => {
     })
 
   return (
-    <Layout isHeaderHidden={isHeaderHidden}>
+    <Layout isHeaderHidden={isHeaderHidden} isLightHeader={isLightHeader}>
       <Suspense fallback={<Loader fullPage />}>
         <Switch>
           {compose(
