@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import React from 'react'
 
 import {getPagePath} from 'config/routes'
-import marvelLogo from 'assets/marvel-logo.svg'
+import marvelLogo from 'assets/images/marvel-logo.svg'
 
 import SearchField from '../SearchField'
 
