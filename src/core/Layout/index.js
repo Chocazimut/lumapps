@@ -6,7 +6,7 @@ import Header from './components/Header'
 const Layout = ({isHeaderHidden, isLightHeader, children}) => (
   <div>
     {!isHeaderHidden && <Header isLightHeader={isLightHeader} />}
-    <main>{children}</main>
+    <main className="main-container">{children}</main>
   </div>
 )
 

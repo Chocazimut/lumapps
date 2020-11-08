@@ -8,4 +8,6 @@ export const getFetchMarvelCharactersStatus = state =>
   path([namespace, 'marvelCharacters'], state)
 
 export const getMarvelCharactersList = state =>
-  path(namespace, ['marvelCharacters', 'data'], state)
+  path([namespace, 'marvelCharacters', 'data'], state)
+
+export const getLoadMoreOffset = state => path([namespace, 'offset'], state)

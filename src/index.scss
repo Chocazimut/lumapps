@@ -14,6 +14,17 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+}
+
 @import './App/App.scss';
-@import './core/Layout/components/Header/index.scss';
-@import './core/Layout/components/SearchField/index.scss';
+@import './core/Layout/components/Header/styles.scss';
+@import './core/Layout/components/SearchField/styles.scss';
+@import './core/Layout/styles.scss';
+@import './core/Ui/Loader/styles';
+@import './features/Home/styles.scss';
+@import './features/Home/components/HeadlinesBlock/styles.scss';
+@import './features/Home/components/LoadMore/styles.scss';
+@import './features/Home/components/Card/styles.scss';
+@import './features/Home/components/CardList/styles.scss';
