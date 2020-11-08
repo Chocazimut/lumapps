@@ -14,13 +14,14 @@ const useFetchMarvelCharacters = () => {
   const calcOffset = offset * 4
 
   return useCallback(
-    async ({more}) => {
+    async ({more, nameStartsWith = undefined}) => {
       const axiosConfig = {
         method: 'GET',
         url: `${endpoints.apiRestCharacters}`,
         params: {
           limit: 4,
           offset: calcOffset,
+          nameStartsWith,
         },
       }
 

@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import history from 'store/history'
 import React from 'react'
 
+import {setLoadMoreOffsetAction} from 'features/Home/store/actions'
 import useDebouncedInput from 'hooks/useDebouncedInput'
 
 import {getPagePath} from 'config/routes'
@@ -23,6 +24,7 @@ const SearchField = ({isLightHeader}) => {
 
   const handleEnterKeyPress = event => {
     if (event.key === 'Enter') {
+      dispatch(setLoadMoreOffsetAction.create({offset: 0}))
       history.push(getPagePath('home'))
     }
   }

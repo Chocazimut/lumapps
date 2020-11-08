@@ -1,3 +1,12 @@
 .search-field {
   background-color: white;
 }
+
+@media (max-width: 375px) {
+  .lumx-text-field {
+    max-width: 135px;
+  }
+  .lumx-text-field__input-wrapper {
+    width: 50%;
+  }
+}
