@@ -1,5 +1,5 @@
-import {addIndex, map} from 'ramda'
-import {FlexBox} from '@lumx/react'
+import {addIndex, isEmpty, map} from 'ramda'
+import {Alignment, FlexBox} from '@lumx/react'
 import {isEven} from 'ramda-adjunct'
 import {useSelector} from 'react-redux'
 import React from 'react'
@@ -13,7 +13,7 @@ import CardLoader from '../Skeleton'
 
 const CardList = () => {
   const characterList = useSelector(getMarvelCharactersList)
-  const {isLoading} = useSelector(getFetchMarvelCharactersStatus)
+  const {hasInit, isLoading} = useSelector(getFetchMarvelCharactersStatus)
   const mapIndex = addIndex(map)
 
   if (isLoading) {
@@ -36,6 +36,16 @@ const CardList = () => {
         <CardLoader />
         <CardLoader marginLeft />
         <CardLoader />
+      </FlexBox>
+    )
+  }
+
+  if (hasInit && !isLoading && isEmpty(characterList)) {
+    return (
+      <FlexBox vAlign={Alignment.center}>
+        <p className="lumx-typography-body2">
+          Sorry... No result found :&apos;(
+        </p>
       </FlexBox>
     )
   }
