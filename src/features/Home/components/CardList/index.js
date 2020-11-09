@@ -13,7 +13,9 @@ import CardLoader from '../Skeleton'
 
 const CardList = () => {
   const characterList = useSelector(getMarvelCharactersList)
-  const {hasInit, isLoading} = useSelector(getFetchMarvelCharactersStatus)
+  const {hasInit, isLoading, error} = useSelector(
+    getFetchMarvelCharactersStatus,
+  )
   const mapIndex = addIndex(map)
 
   if (isLoading) {
@@ -40,11 +42,21 @@ const CardList = () => {
     )
   }
 
-  if (hasInit && !isLoading && isEmpty(characterList)) {
+  if (hasInit && !isLoading && isEmpty(characterList) && !error) {
     return (
       <FlexBox vAlign={Alignment.center}>
         <p className="lumx-typography-body2">
           Sorry... No result found :&apos;(
+        </p>
+      </FlexBox>
+    )
+  }
+
+  if (hasInit && !isLoading && error) {
+    return (
+      <FlexBox vAlign={Alignment.center}>
+        <p className="lumx-typography-body2">
+          {`Sorry... ${error.message} :'(`}
         </p>
       </FlexBox>
     )
