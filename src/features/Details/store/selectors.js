@@ -1,4 +1,4 @@
-import {path} from 'ramda'
+import {path, pathOr} from 'ramda'
 
 import STORE_NAMESPACES from 'store/namespaces'
 
@@ -9,5 +9,8 @@ export const getFetchCharacterDetailsStatus = state =>
 
 export const getCharacterDetails = state =>
   path([namespace, 'characterDetails', 'data'], state)
+
+export const getCharacterLastComics = state =>
+  pathOr([], [namespace, 'characterDetails', 'data', 'lastComics'], state)
 
 export const getLoadMoreOffset = state => path([namespace, 'offset'], state)

@@ -10,10 +10,10 @@ const HeadlinesBlock = () => (
     <h1 className="lumx-typography-display1">
       <span className="blue-span">Marvel</span> Characters
     </h1>
-    <h3 className="lumx-typography-subtitle2 lumx-spacing-padding-vertical-big">
+    <h2 className="lumx-typography-subtitle2 lumx-spacing-padding-vertical-big">
       Get hooked on a hearty helping of heroes and villains from the humble
       House of Ideas!
-    </h3>
+    </h2>
   </FlexBox>
 )
 

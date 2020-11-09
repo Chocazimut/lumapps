@@ -1,0 +1,43 @@
+.footer {
+  background-color: #28336d;
+  min-height: 200px;
+  color: #fff;
+}
+
+.footer-content-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media (max-width: 375px) {
+  .footer-top {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.lumapps-logo {
+  max-width: 150px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+@media (max-width: 375px) {
+  .lumapps-logo {
+    margin-top: 30px;
+  }
+}
+
+.separative-line {
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  opacity: 0.5;
+}

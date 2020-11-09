@@ -1,6 +1,9 @@
 import {useParams} from 'react-router-dom'
 import React, {useEffect} from 'react'
 
+import ComicsSection from './components/ComicsSection'
+import Hero from './components/Hero'
+import OtherSection from './components/OtherSection'
 import useFetchCharacterDetails from './hooks/useFetchCharacterDetails'
 
 const Details = () => {
@@ -14,8 +17,10 @@ const Details = () => {
   }, [])
 
   return (
-    <section className="lumx-spacing-padding-vertical-huge content-container">
-      <h1>DETAILS PAGE</h1>
+    <section>
+      <Hero />
+      <ComicsSection />
+      <OtherSection />
     </section>
   )
 }

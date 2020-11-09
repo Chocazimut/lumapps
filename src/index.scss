@@ -20,6 +20,7 @@ a {
 
 @import './App/App.scss';
 @import './core/Layout/components/Header/styles.scss';
+@import './core/Layout/components/Footer/styles.scss';
 @import './core/Layout/components/SearchField/styles.scss';
 @import './core/Layout/styles.scss';
 @import './core/Ui/Loader/styles';
@@ -29,3 +30,6 @@ a {
 @import './features/Home/components/Card/styles.scss';
 @import './features/Home/components/CardList/styles.scss';
 @import './features/Details/styles.scss';
+@import './features/Details/components/Hero/styles.scss';
+@import './features/Details/components/ComicsSection/styles.scss';
+@import './features/Details/components/OtherSection/styles';

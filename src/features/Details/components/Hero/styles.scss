@@ -1,0 +1,151 @@
+.hero-wrapper {
+  position: relative;
+  background-image: url('../../../../assets//images/hero-bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: fit-content;
+}
+
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.hero-wave {
+  position: relative;
+  width: 12%;
+  height: 20%;
+  bottom: 0;
+}
+
+.hero-content-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-container {
+  width: 50%;
+}
+
+.right-container {
+  width: 50%;
+}
+
+.hero-image {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-section-container {
+  position: absolute;
+  color: #ffc525;
+  width: 100%;
+  max-width: 1200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.back-section {
+  cursor: pointer;
+}
+
+.hero-title {
+  color: #ffc525;
+}
+
+@media (max-width: 375px) {
+  .hero-background {
+    min-height: 650px;
+  }
+
+  .hero-wave {
+    width: 20%;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 768px) {
+  .hero-wave {
+    width: 15%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    width: 250px;
+    height: 250px;
+  }
+  .hero-content-container {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .right-container {
+    align-items: center;
+    width: 100%;
+  }
+  .left-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 920px) {
+  .hero-image {
+    width: 300px;
+    height: 300px;
+  }
+  .hero-title {
+    font-size: 20px;
+    padding-bottom: 8px !important;
+  }
+  .hero-subtitle {
+    font-size: 10px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 920px) {
+  .hero-title {
+    font-size: 24px;
+    padding-bottom: 8px !important;
+  }
+  .hero-subtitle {
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .back-text > span {
+    display: none;
+  }
+  .back-icon {
+    margin-right: 5px !important;
+  }
+}
+
+@media (min-width: 920px) and (max-width: 1200px) {
+  .hero-image {
+    width: 300px;
+    height: 300px;
+  }
+  .hero-title {
+    font-size: 28px;
+    padding-bottom: 8px !important;
+  }
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
