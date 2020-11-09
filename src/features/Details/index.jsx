@@ -12,6 +12,7 @@ const Details = () => {
   const {characterId} = useParams()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetchCharacterDetails({characterId})
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

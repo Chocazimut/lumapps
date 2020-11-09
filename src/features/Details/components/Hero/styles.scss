@@ -4,6 +4,13 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: fit-content;
+  min-height: 400px;
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wave-container {

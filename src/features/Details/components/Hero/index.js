@@ -1,4 +1,11 @@
-import {Alignment, FlexBox, Icon, Orientation, Size} from '@lumx/react'
+import {
+  Alignment,
+  FlexBox,
+  Icon,
+  Orientation,
+  Progress,
+  Size,
+} from '@lumx/react'
 import {isEmpty, isNil} from 'ramda'
 import {mdiArrowLeft} from '@lumx/icons'
 import {useLocation} from 'react-router-dom'
@@ -39,6 +46,21 @@ const Hero = () => {
     }
   }
 
+  if (hasInit && isLoading) {
+    return (
+      <div className="hero-wrapper loading-wrapper">
+        <Progress />
+        <FlexBox vAlign={Alignment.center} className="wave-container">
+          <img
+            src={wave}
+            alt="bottom-hero-background-wave"
+            className="hero-wave"
+          />
+        </FlexBox>
+      </div>
+    )
+  }
+
   return (
     <div className="hero-wrapper">
       <FlexBox vAlign={Alignment.center} className="wave-container">
@@ -55,9 +77,14 @@ const Hero = () => {
           className="left-container lumx-spacing-padding-huge"
         >
           {error && (
-            <h3 className="lumx-typography-title hero-subtitle">
-              Oups it looks like this character is gone... :&apos;(
-            </h3>
+            <>
+              <h3 className="lumx-typography-title hero-subtitle lumx-spacing-padding-bottom-huge">
+                Sorry... It looks like this character is gone... :&apos;(
+              </h3>
+              <h3 className="lumx-typography-title hero-subtitle">
+                {`Or ${error.message}...`}
+              </h3>
+            </>
           )}
           <h2 className="lumx-typography-display1 hero-title lumx-spacing-padding-bottom-huge">
             {name}
