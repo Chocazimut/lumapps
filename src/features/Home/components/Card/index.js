@@ -1,21 +1,26 @@
 import {Alignment, FlexBox, Orientation} from '@lumx/react'
 import {isEmpty} from 'ramda'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import {number, shape, string} from 'prop-types'
 import React from 'react'
 
+import {emptyCharacterDescription} from 'config/constants'
 import {getPagePath} from 'config/routes'
 import wave from 'assets/images/wave.png'
 
 import {CharacterImage} from './styles'
 
 const Card = ({id, name, description, position, thumbnail}) => {
+  const {pathname} = useLocation()
   const {path, extension} = thumbnail
   const imgUrl = `${path}.${extension}`
 
   return (
     <Link
-      to={getPagePath('details', {characterId: id})}
+      to={{
+        pathname: getPagePath('details', {characterId: id}),
+        state: {from: pathname},
+      }}
       className={`details-link lumx-spacing-margin-vertical-big ${
         position === 'left'
           ? 'lumx-spacing-margin-right-big'
@@ -43,9 +48,9 @@ const Card = ({id, name, description, position, thumbnail}) => {
             <p className="lumx-typography-title lumx-spacing-padding-top-huge">
               {name}
             </p>
-            <p className="lumx-typography-body2 lumx-spacing-padding-top-big">
+            <p className="lumx-typography-body2 lumx-spacing-padding-top-big card-character-desc">
               {isEmpty(description)
-                ? "Another Hero without short description...  :'("
+                ? emptyCharacterDescription
                 : `${description.substring(0, 120)}...`}
             </p>
           </FlexBox>

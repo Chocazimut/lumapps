@@ -1,0 +1,46 @@
+.section-title {
+  color: #28336d;
+}
+
+.section-title > span {
+  color: #2972e2;
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: auto;
+}
+.comics-container {
+  justify-content: space-around;
+  max-width: 100%;
+  min-height: 300px;
+}
+
+.comics-card {
+  max-width: 30%;
+}
+
+.cover-img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .comics-container {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  .comics-card {
+    width: 90%;
+    max-width: 100%;
+    margin: 0 !important;
+  }
+}
+@media (min-width: 768px) {
+  .comics-container {
+    flex-direction: row;
+    max-width: 100%;
+  }
+  .comics-card {
+    max-width: 30%;
+  }
+}
