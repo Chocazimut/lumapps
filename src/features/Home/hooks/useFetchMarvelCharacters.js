@@ -26,9 +26,9 @@ const useFetchMarvelCharacters = () => {
       }
 
       const formatData = ({data}) => {
-        const {results} = data
+        const {results, total} = data
 
-        return results
+        return {results, total}
       }
 
       await dispatch(loadMarvelCharactersFetchActions.request.create())
