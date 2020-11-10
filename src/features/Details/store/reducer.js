@@ -1,11 +1,9 @@
-import {isNil} from 'ramda'
 import createReducer from 'helpers/redux/createReducer'
 import fetchReducerHelper from 'helpers/fetch/fetchReducerHelper'
 
 import {
   loadCharacterDetailsFetchActions,
   loadComicsDetailsFetchActions,
-  updateCharacterDetailsAction,
 } from './actions'
 
 const initialState = {
@@ -61,24 +59,6 @@ const handleLoadComicsDetailsFailure = (state, {error, status}) => ({
   },
 })
 
-const handleUpdateCharacterDetails = (state, {newComics}) => {
-  const {lastComics} = state.characterDetails.data
-  const newLastComics = isNil(lastComics)
-    ? [newComics]
-    : [...lastComics, newComics]
-
-  return {
-    ...state,
-    characterDetails: {
-      ...state.characterDetails,
-      data: {
-        ...state.characterDetails.data,
-        lastComics: newLastComics,
-      },
-    },
-  }
-}
-
 const detailsReducer = createReducer(initialState, {
   [loadCharacterDetailsFetchActions.request
     .type]: handleLoadCharacterDetailsRequest,
@@ -89,7 +69,6 @@ const detailsReducer = createReducer(initialState, {
   [loadComicsDetailsFetchActions.request.type]: handleLoadComicsDetailsRequest,
   [loadComicsDetailsFetchActions.success.type]: handleLoadComicsDetailsSuccess,
   [loadComicsDetailsFetchActions.failure.type]: handleLoadComicsDetailsFailure,
-  [updateCharacterDetailsAction.type]: handleUpdateCharacterDetails,
 })
 
 export default detailsReducer

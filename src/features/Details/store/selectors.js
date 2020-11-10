@@ -10,7 +10,10 @@ export const getFetchCharacterDetailsStatus = state =>
 export const getCharacterDetails = state =>
   path([namespace, 'characterDetails', 'data'], state)
 
-export const getCharacterLastComics = state =>
-  pathOr([], [namespace, 'characterDetails', 'data', 'lastComics'], state)
+export const getFetchComicsDetailsStatus = state =>
+  path([namespace, 'comicsDetails'], state)
+
+export const getComicList = state =>
+  pathOr([], [namespace, 'comicsDetails', 'data'], state)
 
 export const getLoadMoreOffset = state => path([namespace, 'offset'], state)
