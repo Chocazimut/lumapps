@@ -30,15 +30,18 @@ const handleLoadMarvelCharactersSuccess = (state, {data, status, more}) => {
     }
   }
 
+  const {results} = data
+
   return {
     ...state,
     marvelCharacters: {
       ...state.marvelCharacters,
-      ...fetchReducerHelper.subStateAfterSuccessMore(
-        state.marvelCharacters.data,
-        data,
+      isLoading: false,
+      data: {
+        ...state.marvelCharacters.data,
+        results: [...state.marvelCharacters.data.results, ...results],
         status,
-      ),
+      },
     },
   }
 }

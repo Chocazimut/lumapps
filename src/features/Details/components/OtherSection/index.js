@@ -7,7 +7,7 @@ const OtherSection = () => (
         <span>Other</span> Section
       </h1>
       <p className="lumx-spacing-padding-huge lumx-typography-subtitle1">
-        In this section could be displayed any other data fetched from
+        In this section could be displayed any other data retrieved from
         Marvel&apos;s API :)
       </p>
     </div>

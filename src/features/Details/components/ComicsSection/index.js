@@ -1,16 +1,14 @@
-import {FlexBox, Orientation, Progress} from '@lumx/react'
-import {isEmpty, map} from 'ramda'
+import {Alignment, FlexBox, Orientation, Progress} from '@lumx/react'
+import {isEmpty} from 'ramda'
 import {useSelector} from 'react-redux'
 import React from 'react'
 
-import {
-  getCharacterLastComics,
-  getFetchCharacterDetailsStatus,
-} from '../../store/selectors'
+import {getComicList, getFetchComicsDetailsStatus} from '../../store/selectors'
+import ComicCard from './components/ComicCard'
 
 const ComicsSection = () => {
-  const {hasInit, isLoading} = useSelector(getFetchCharacterDetailsStatus)
-  const lastComics = useSelector(getCharacterLastComics)
+  const {hasInit, isLoading} = useSelector(getFetchComicsDetailsStatus)
+  const comicList = useSelector(getComicList)
 
   if (hasInit && isLoading) {
     return (
@@ -41,34 +39,15 @@ const ComicsSection = () => {
         </h1>
         <FlexBox
           orientation={Orientation.horizontal}
+          hAlign={Alignment.center}
           className="lumx-spacing-padding-huge comics-container"
         >
-          {isEmpty(lastComics) && (
+          {isEmpty(comicList) && (
             <p className="lumx-typography-subtitle2 lumx-spacing-margin-bottom-huge">
               No comic available... :&apos;(
             </p>
           )}
-          {map(
-            ({title, thumbnail}, index) => (
-              <FlexBox
-                orientation={Orientation.vertical}
-                className="lumx-spacing-margin-huge comics-card"
-              >
-                <img
-                  src={`${thumbnail.path}.${thumbnail.extension}`}
-                  alt={`${title} cover`}
-                  className="cover-img lumx-spacing-margin-bottom-huge"
-                />
-                <p
-                  className="lumx-typography-subtitle2 lumx-spacing-margin-bottom-huge"
-                  key={`last-comic-${index}`}
-                >
-                  {title}
-                </p>
-              </FlexBox>
-            ),
-            lastComics,
-          )}
+          <ComicCard />
         </FlexBox>
       </FlexBox>
     </section>

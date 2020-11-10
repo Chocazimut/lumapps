@@ -17,12 +17,6 @@ const subStateAfterSuccess = (data, status) => ({
   status,
 })
 
-const subStateAfterSuccessMore = (currentData, moreData, status) => ({
-  isLoading: false,
-  data: [...currentData, ...moreData],
-  status,
-})
-
 const subStateAfterFailure = (error, status) => ({
   isLoading: false,
   error,
@@ -33,6 +27,5 @@ export default {
   subStateAfterInit,
   subStateAfterRequest,
   subStateAfterSuccess,
-  subStateAfterSuccessMore,
   subStateAfterFailure,
 }

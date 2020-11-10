@@ -1,29 +1,28 @@
-import {head} from 'ramda'
 import {useCallback} from 'react'
 import {useDispatch} from 'react-redux'
 
 import endpoints from 'config/endpoints'
 import fetchApi from 'helpers/fetch/fetchApi'
 
-import {
-  loadComicsDetailsFetchActions,
-  updateCharacterDetailsAction,
-} from '../store/actions'
+import {loadComicsDetailsFetchActions} from '../store/actions'
 
 const useFetchComicsDetails = () => {
   const dispatch = useDispatch()
 
   return useCallback(
-    async ({comicsId}) => {
+    async ({characterId}) => {
       const axiosConfig = {
         method: 'GET',
-        url: `${endpoints.apiRestComics}/${comicsId}`,
+        url: `${endpoints.apiRestComics}`,
+        params: {
+          characters: characterId,
+        },
       }
 
       const formatData = ({data}) => {
         const {results} = data
 
-        return head(results)
+        return results
       }
 
       await dispatch(loadComicsDetailsFetchActions.request.create())
@@ -34,7 +33,6 @@ const useFetchComicsDetails = () => {
         await dispatch(
           loadComicsDetailsFetchActions.success.create({data, status}),
         )
-        await dispatch(updateCharacterDetailsAction.create({newComics: data}))
       } else {
         await dispatch(
           loadComicsDetailsFetchActions.failure.create({error, status}),
